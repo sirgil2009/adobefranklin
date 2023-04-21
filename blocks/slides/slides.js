@@ -46,5 +46,5 @@ export default function decorate(block) {
   slidesContainer.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.textContent = '';
   block.append(slidesContainer );
-  showSlides(slideIndex);
+ // showSlides(slideIndex);
 }
