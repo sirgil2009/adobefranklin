@@ -31,7 +31,7 @@ export default function decorate(block) {
   nextButton.addEventListener('click', () => nextOrPrevSlide(1));
   prevButton.addEventListener('click', () => nextOrPrevSlide(-1));
 
-  slidesContainer.className = 'slides-container';
+  slidesContainer.className = 'slides';
   [...block.children].forEach((row) => {
     const slide = document.createElement('div');
     slide.innerHTML = row.innerHTML;
