@@ -2,7 +2,7 @@
 import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 
 
-
+let slideIndex = 1;
 
 function nextOrPrevSlide(n) {
   showSlides(slideIndex += n);
@@ -14,7 +14,7 @@ function showSlides(n) {
   if (n < 1) slideIndex = slides.length;
   slides.forEach((slide) => {
     slide.style.display = 'none';
-  });
+  }); 
   slides[slideIndex - 1].style.display = 'block';
 }
 
@@ -24,7 +24,6 @@ export default function decorate(block) {
   const prevButton = document.createElement('a');
   const nextButton = document.createElement('a');
   const dotsContainer = document.createElement('div');
-  let slideIndex = 1;
   prevButton.className = 'prev';
   prevButton.innerHTML = '&#10094;';
   nextButton.className = 'next';
@@ -43,8 +42,6 @@ export default function decorate(block) {
   });
   slidesContainer.append(prevButton);
   slidesContainer.append(nextButton);
-  slidesContainer.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
-  block.textContent = '';
   block.append(slidesContainer );
- // showSlides(slideIndex);
+  showSlides(slideIndex);
 }
