@@ -24,12 +24,14 @@ export default function decorate(block) {
   const prevButton = document.createElement('a');
   const nextButton = document.createElement('a');
   const dotsContainer = document.createElement('div');
+  const NEXT=1;
+  const PREV=-1;
   prevButton.className = 'prev';
   prevButton.innerHTML = '&#10094;';
   nextButton.className = 'next';
   nextButton.innerHTML = '&#10095;';
-  nextButton.addEventListener('click', () => nextOrPrevSlide(1));
-  prevButton.addEventListener('click', () => nextOrPrevSlide(-1));
+  nextButton.addEventListener('click', () => nextOrPrevSlide(NEXT));
+  prevButton.addEventListener('click', () => nextOrPrevSlide(PREV));
 
   slidesContainer.className = 'slides';
   [...block.children].forEach((row) => {
